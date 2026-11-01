@@ -1,0 +1,71 @@
+---
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}">
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, sans-serif;
+        color: #23312d;
+        background: #f5f4ef;
+      }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        place-items: center;
+      }
+
+      main {
+        box-sizing: border-box;
+        width: min(100% - 2rem, 48rem);
+        padding: clamp(2rem, 8vw, 5rem);
+        border-radius: 1.5rem;
+        background: #fff;
+        box-shadow: 0 1rem 3rem rgb(35 49 45 / 8%);
+      }
+
+      p {
+        max-width: 38rem;
+        color: #53635c;
+        font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+        line-height: 1.7;
+      }
+
+      h1 {
+        margin: 0;
+        color: #285d4b;
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+        letter-spacing: -0.06em;
+        line-height: 1;
+      }
+
+      .eyebrow {
+        margin: 0 0 1rem;
+        color: #9a7045;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Stories bring us together</p>
+      <h1>{{ site.title }}</h1>
+      <p>
+        We develop and distribute software tools that enhance life through
+        shared stories and experiences. By helping people capture, discover,
+        and share what matters, our tools make room for deeper connection and
+        a richer appreciation of one another.
+      </p>
+    </main>
+  </body>
+</html>
