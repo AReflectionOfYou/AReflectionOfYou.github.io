@@ -7,6 +7,7 @@
 
   status: "live", "construction" (under construction), or "soon" (coming soon)
   link:   the page or repo to open, or "" for no link yet
+  icon:   optional picture shown on the card, from the icons folder
 */
 const PRODUCTS = [
   // Keep Memories: tools that hold on to the memories you already have
@@ -14,9 +15,9 @@ const PRODUCTS = [
   { side: "keep", name: "Biographies",      status: "soon",         description: "Life stories drawn from interviews, from first questions to finished keepsake.", link: "" },
 
   // Make Memories: games you play together
-  { side: "make", name: "Two of You",       status: "live",         description: "A memory game to play together.", link: "https://areflectionofyou.github.io/TwoOfYouGame/" },
+  { side: "make", name: "Two of You",       status: "live",         description: "A memory game to play together.", link: "https://areflectionofyou.github.io/TwoOfYouGame/", icon: "icons/two-of-you.png" },
   { side: "make", name: "A Glimpse of You", status: "construction", description: "Guess who is in the family photo, played together on your home network.", link: "https://github.com/AReflectionOfYou/AGlimpseOfYouGame" },
-  { side: "make", name: "Quartets of You",  status: "construction", description: "Find the hidden groups of four in this word game.", link: "https://github.com/AReflectionOfYou/QuartetsOfYouGame" },
+  { side: "make", name: "Quartets of You",  status: "live",         description: "Find the hidden groups of four in this word game.", link: "https://areflectionofyou.github.io/QuartetsOfYouGame/", icon: "icons/quartets-of-you.svg" },
   { side: "make", name: "Swing Time",       status: "construction", description: "Swipe your phone to ring virtual handbells and play music together.", link: "https://areflectionofyou.github.io/SwingTimeGame/" },
 ];
 
@@ -38,6 +39,14 @@ function renderProducts() {
       const card = document.createElement(p.link ? "a" : "div");
       card.className = "card" + (p.status === "live" ? "" : " card-muted");
       if (p.link) card.href = p.link;
+
+      if (p.icon) {
+        const icon = document.createElement("img");
+        icon.className = "card-icon";
+        icon.src = p.icon;
+        icon.alt = ""; // decorative: the name is right beside it
+        card.append(icon);
+      }
 
       const title = document.createElement("h3");
       title.className = "card-name";

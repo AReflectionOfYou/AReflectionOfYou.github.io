@@ -178,6 +178,16 @@ a.card:hover {
   box-shadow: var(--shadow-lift);
 }
 
+/* Product icon, shown in the top right corner of the card */
+.card-icon {
+  float: right;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 0 0.5rem 1rem;
+  border-radius: 0.9rem;
+  object-fit: contain;
+}
+
 .card-name {
   display: inline;
   margin: 0 0.6rem 0 0;
@@ -201,7 +211,7 @@ a.card:hover {
 .keep .card-cta { color: var(--keep-ink); }
 .make .card-cta { color: var(--make-ink); }
 
-/* The one live product gets a filled button */
+/* Live products get a filled button */
 .card:not(.card-muted) .card-cta {
   padding: 0.6rem 1.2rem;
   border-radius: 999px;
