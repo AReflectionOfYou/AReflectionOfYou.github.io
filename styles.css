@@ -113,12 +113,16 @@ a { color: var(--make-ink); text-underline-offset: 0.18em; }
   letter-spacing: -0.02em;
 }
 
+/* On wider screens each tagline sentence is centered over its column */
 .tagline {
-  max-width: 40rem;
-  margin: 1rem auto 0;
-  text-wrap: balance;
+  display: grid;
+  gap: 0.25rem;
+  margin: 1rem 0 0;
   color: var(--ink-soft);
   font-size: clamp(1.15rem, 3vw, 1.4rem);
+}
+@media (min-width: 48rem) {
+  .tagline { grid-template-columns: 1fr 1fr; gap: 2rem; }
 }
 
 /* ---------- Two columns ---------- */
