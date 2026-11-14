@@ -94,8 +94,11 @@ a { color: var(--make-ink); text-underline-offset: 0.18em; }
   font-size: 2rem;
   line-height: 1;
 }
+/* The two letters sit side by side, one on each half of the circle */
 .logo-mark {
-  grid-auto-flow: column;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
   gap: 0.08em;
 }
