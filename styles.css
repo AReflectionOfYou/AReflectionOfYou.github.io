@@ -199,6 +199,21 @@ a.card:hover {
   color: var(--ink-soft);
 }
 
+/* Heads-up for a product that is different to get started with */
+.card-note {
+  margin: 0.75rem 0 0;
+  padding: 0.55rem 0.8rem;
+  border-left: 3px solid var(--make-accent);
+  border-radius: 0.4rem;
+  background: var(--make-wash);
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+.keep .card-note {
+  border-left-color: var(--keep-accent);
+  background: var(--keep-wash);
+}
+
 .card-cta {
   display: inline-block;
   margin-top: 0.75rem;

@@ -8,6 +8,8 @@
   status: "live", "construction" (under construction), or "soon" (coming soon)
   link:   the page or repo to open, or "" for no link yet
   icon:   optional picture shown on the card, from the icons folder
+  cta:    optional button text, instead of "Play now" / "Take a look"
+  note:   optional heads-up shown on the card, for anything unusual about getting started
 */
 const PRODUCTS = [
   // Keep Memories: tools that hold on to the memories you already have
@@ -16,9 +18,10 @@ const PRODUCTS = [
 
   // Make Memories: games you play together
   { side: "make", name: "Two of You",       status: "live",         description: "A memory game to play together.", link: "https://areflectionofyou.github.io/TwoOfYouGame/", icon: "icons/two-of-you.png" },
-  { side: "make", name: "A Glimpse of You", status: "construction", description: "Guess who is in the family photo, played together on your home network.", link: "https://github.com/AReflectionOfYou/AGlimpseOfYouGame" },
+  { side: "make", name: "A Glimpse of You", status: "live",         description: "Figure out who is in the photo with yes/no questions, played together on your home network.", link: "https://github.com/AReflectionOfYou/AGlimpseOfYouGame",
+    cta: "Set it up", note: "Needs some computer setup: you install it on a Mac or PC and start it from Terminal. Phones then join over your home WiFi." },
   { side: "make", name: "Quartets of You",  status: "live",         description: "Find the hidden groups of four in this word game.", link: "https://areflectionofyou.github.io/QuartetsOfYouGame/", icon: "icons/quartets-of-you.svg" },
-  { side: "make", name: "Swing Time",       status: "construction", description: "Swipe your phone to ring virtual handbells and play music together.", link: "https://areflectionofyou.github.io/SwingTimeGame/" },
+  { side: "make", name: "Swing Time",       status: "live",         description: "Swing your phone to ring virtual handbells and play music together.", link: "https://areflectionofyou.github.io/SwingTimeGame/" },
 ];
 
 const STATUS_LABELS = {
@@ -66,10 +69,17 @@ function renderProducts() {
       text.textContent = p.description;
       card.append(text);
 
+      if (p.note) {
+        const note = document.createElement("p");
+        note.className = "card-note";
+        note.textContent = p.note;
+        card.append(note);
+      }
+
       if (p.link) {
         const cta = document.createElement("span");
         cta.className = "card-cta";
-        cta.textContent = p.status === "live" ? "Play now" : "Take a look";
+        cta.textContent = p.cta || (p.status === "live" ? "Play now" : "Take a look");
         cta.setAttribute("aria-hidden", "true");
         card.append(cta);
       }
