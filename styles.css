@@ -276,6 +276,15 @@ footer a {
   padding: 0.6rem 0.25rem; /* bigger tap target */
   color: var(--ink);
 }
+footer .license {
+  margin: 0.75rem 0 0;
+  font-size: 0.8rem;
+}
+footer .license a {
+  display: inline;
+  padding: 0;
+  color: inherit;
+}
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
