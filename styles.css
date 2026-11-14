@@ -1,0 +1,257 @@
+/*
+  Colors and fonts. Change these to restyle the whole page.
+  The "-ink" colors are darker versions of each accent, used for text so it stays readable.
+*/
+:root {
+  --bg: #FAF5EA;          /* warm cream page background */
+  --ink: #1F2A44;         /* deep navy text and headings */
+  --ink-soft: #4A5468;    /* secondary text */
+  --card: #FFFDF8;        /* card background */
+
+  --keep-accent: #D9922E; /* amber */
+  --keep-ink: #8A5A14;
+  --keep-wash: #FCEFD9;
+
+  --make-accent: #3A8F8B; /* soft teal */
+  --make-ink: #2A6B68;
+  --make-wash: #E6F3F1;
+
+  --muted-card: #F7F3EC;  /* background for cards not yet live */
+  --focus: #1F2A44;
+
+  --font-heading: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --radius: 1rem;
+  --shadow: 0 0.25rem 1rem rgb(31 42 68 / 8%);
+  --shadow-lift: 0 0.75rem 1.75rem rgb(31 42 68 / 14%);
+  --max-width: 68rem;
+}
+
+* { box-sizing: border-box; }
+
+html { color-scheme: light; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.wrap {
+  width: min(100% - 2rem, var(--max-width));
+  margin-inline: auto;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+a { color: var(--make-ink); text-underline-offset: 0.18em; }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: clamp(3rem, 10vw, 6.5rem) 0 clamp(2rem, 6vw, 3.5rem);
+  text-align: center;
+}
+
+/*
+  Logo slot. To add the logo, replace the <span class="logo-mark"> in index.html with
+  <img src="logo.png" alt="A Reflection of You logo">. The slot keeps the same size.
+*/
+.logo {
+  display: grid;
+  place-items: center;
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto 1.5rem;
+}
+.logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.logo-mark {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(90deg, var(--keep-wash) 50%, var(--make-wash) 50%);
+  border: 2px solid var(--ink);
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  letter-spacing: 0.04em;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 8vw, 4.2rem);
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  max-width: 40rem;
+  margin: 1rem auto 0;
+  text-wrap: balance;
+  color: var(--ink-soft);
+  font-size: clamp(1.15rem, 3vw, 1.4rem);
+}
+
+/* ---------- Two columns ---------- */
+
+.columns {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 48rem) {
+  .columns { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+.column {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: calc(var(--radius) * 1.5);
+}
+.column h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 4vw, 2rem);
+}
+.column-intro {
+  margin: 0.5rem 0 1.5rem;
+  color: var(--ink-soft);
+}
+
+.keep { background: var(--keep-wash); border-top: 5px solid var(--keep-accent); }
+.make { background: var(--make-wash); border-top: 5px solid var(--make-accent); }
+
+.cards {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  display: block;
+  min-height: 3rem;
+  padding: 1.25rem 1.4rem;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+a.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}
+
+.card-name {
+  display: inline;
+  margin: 0 0.6rem 0 0;
+  font-size: 1.3rem;
+}
+
+.card-text {
+  margin: 0.4rem 0 0;
+  color: var(--ink-soft);
+}
+
+.card-cta {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+.card-cta::after { content: " \2192"; }
+
+.keep .card-cta { color: var(--keep-ink); }
+.make .card-cta { color: var(--make-ink); }
+
+/* The one live product gets a filled button */
+.card:not(.card-muted) .card-cta {
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: var(--make-ink);
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.card-muted {
+  background: var(--muted-card);
+  box-shadow: none;
+  border: 1px dashed rgb(31 42 68 / 22%);
+}
+
+.badge {
+  display: inline-block;
+  vertical-align: 0.2em;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+  background: var(--card);
+  border: 1px solid currentColor;
+}
+.keep .badge { color: var(--keep-ink); }
+.make .badge { color: var(--make-ink); }
+
+/* ---------- About ---------- */
+
+.about {
+  max-width: 40rem;
+  margin: clamp(3rem, 8vw, 5rem) auto;
+  text-align: center;
+}
+.about h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.6rem;
+}
+.about p { margin: 0; font-size: 1.15rem; }
+
+/* ---------- Footer ---------- */
+
+footer {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid rgb(31 42 68 / 12%);
+  color: var(--ink-soft);
+  text-align: center;
+  font-size: 0.95rem;
+}
+footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+footer a {
+  display: inline-block;
+  padding: 0.6rem 0.25rem; /* bigger tap target */
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  a.card:hover { transform: none; }
+}
