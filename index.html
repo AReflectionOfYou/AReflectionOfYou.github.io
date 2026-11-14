@@ -1,71 +1,194 @@
----
----
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ site.title }}</title>
-    <meta name="description" content="{{ site.description }}">
-    <style>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Reflection of You</title>
+  <meta name="description" content="Tools and games that reflect the people who use them: shared stories, family photos, and things to play together.">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f5f4ef;
+      --card: #ffffff;
+      --ink: #23312d;
+      --ink-soft: #53635c;
+      --accent: #285d4b;
+      --eyebrow: #8a6238;
+      --line: #e3e0d6;
+      --ok-bg: #e2f1e8;
+      --ok-ink: #1f5a3c;
+      --wip-bg: #f6ead6;
+      --wip-ink: #7a4c12;
+      --shadow: 0 1rem 3rem rgb(35 49 45 / 8%);
+    }
+    @media (prefers-color-scheme: dark) {
       :root {
-        color-scheme: light;
-        font-family: system-ui, sans-serif;
-        color: #23312d;
-        background: #f5f4ef;
+        --bg: #161c1a;
+        --card: #1f2724;
+        --ink: #e8ece9;
+        --ink-soft: #a9b6b0;
+        --accent: #8fd1b4;
+        --eyebrow: #d7a978;
+        --line: #33403b;
+        --ok-bg: #1f3d2e;
+        --ok-ink: #a6e3c3;
+        --wip-bg: #3d3020;
+        --wip-ink: #f0c98f;
+        --shadow: none;
       }
+    }
 
-      body {
-        display: grid;
-        min-height: 100vh;
-        margin: 0;
-        place-items: center;
-      }
+    * { box-sizing: border-box; }
 
-      main {
-        box-sizing: border-box;
-        width: min(100% - 2rem, 48rem);
-        padding: clamp(2rem, 8vw, 5rem);
-        border-radius: 1.5rem;
-        background: #fff;
-        box-shadow: 0 1rem 3rem rgb(35 49 45 / 8%);
-      }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
 
-      p {
-        max-width: 38rem;
-        color: #53635c;
-        font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-        line-height: 1.7;
-      }
+    main {
+      width: min(100% - 2rem, 46rem);
+      margin: clamp(1rem, 5vw, 4rem) auto;
+      padding: clamp(1.5rem, 6vw, 3.5rem);
+      border-radius: 1.5rem;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
 
-      h1 {
-        margin: 0;
-        color: #285d4b;
-        font-size: clamp(2.5rem, 8vw, 4.5rem);
-        letter-spacing: -0.06em;
-        line-height: 1;
-      }
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      color: var(--eyebrow);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
-      .eyebrow {
-        margin: 0 0 1rem;
-        color: #9a7045;
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <p class="eyebrow">Stories bring us together</p>
-      <h1>{{ site.title }}</h1>
-      <p>
-        We develop and distribute software tools that enhance life through
-        shared stories and experiences. By helping people capture, discover,
-        and share what matters, our tools make room for deeper connection and
-        a richer appreciation of one another.
-      </p>
-    </main>
-  </body>
+    h1 {
+      margin: 0;
+      color: var(--accent);
+      font-size: clamp(2.2rem, 8vw, 3.8rem);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .intro {
+      margin: 1.25rem 0 0;
+      color: var(--ink-soft);
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+    }
+
+    h2 {
+      margin: 2.5rem 0 0.75rem;
+      font-size: 1.1rem;
+      color: var(--ink);
+    }
+
+    .projects {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .project {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-name {
+      flex: 1 1 12rem;
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.15rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge-available { background: var(--ok-bg); color: var(--ok-ink); }
+    .badge-wip { background: var(--wip-bg); color: var(--wip-ink); }
+
+    .links {
+      flex-basis: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    a { color: var(--accent); text-underline-offset: 0.15em; }
+    a:focus-visible { outline: 3px solid var(--eyebrow); outline-offset: 2px; border-radius: 2px; }
+
+    .muted { color: var(--ink-soft); }
+
+    footer {
+      width: min(100% - 2rem, 46rem);
+      margin: 0 auto 2.5rem;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Stories bring us together</p>
+    <h1>A Reflection of You</h1>
+    <p class="intro">Tools and games that reflect the people who use them: shared stories, family photos, and things to play together.</p>
+
+    <h2>Projects</h2>
+    <ul class="projects">
+      <li class="project">
+        <p class="project-name">Two of You</p>
+        <span class="badge badge-available">Available</span>
+        <span class="links">
+          <a href="https://areflectionofyou.github.io/TwoOfYouGame/">Play it</a>
+          <a href="https://github.com/AReflectionOfYou/TwoOfYouGame">Source on GitHub</a>
+        </span>
+      </li>
+      <li class="project">
+        <p class="project-name">Swing Time</p>
+        <span class="badge badge-wip">Under construction</span>
+        <span class="links"><span class="muted">Repository coming soon</span></span>
+      </li>
+      <li class="project">
+        <p class="project-name">A Glimpse of You</p>
+        <span class="badge badge-wip">Under construction</span>
+        <span class="links">
+          <a href="https://github.com/AReflectionOfYou/AGlimpseOfYouGame">Source on GitHub</a>
+        </span>
+      </li>
+      <li class="project">
+        <p class="project-name">Quartets of You</p>
+        <span class="badge badge-wip">Under construction</span>
+        <span class="links">
+          <a href="https://github.com/AReflectionOfYou/QuartetsOfYouGame">Source on GitHub</a>
+        </span>
+      </li>
+      <li class="project">
+        <p class="project-name">Photo Stories</p>
+        <span class="badge badge-wip">Under construction</span>
+        <span class="links">
+          <a href="https://github.com/AReflectionOfYou/PhotoStories">Source on GitHub</a>
+        </span>
+      </li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>Open source under the MIT License. Find everything on <a href="https://github.com/AReflectionOfYou">GitHub</a>.</p>
+  </footer>
+</body>
 </html>
