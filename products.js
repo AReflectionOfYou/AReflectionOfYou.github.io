@@ -13,7 +13,8 @@
 */
 const PRODUCTS = [
   // Keep Memories: tools that hold on to the memories you already have
-  { side: "keep", name: "Photo Stories",    status: "soon",         description: "Capture and share your photos along with the stories behind them.", link: "https://github.com/AReflectionOfYou/PhotoStories" },
+  { side: "keep", name: "Photo Stories Desktop", status: "live", description: "Tell the stories behind your special photos, name the people in them, and keep it all in a permanent archive. For Mac, Windows and Linux.", link: "https://github.com/AReflectionOfYou/PhotoStoriesDesktop/releases/latest", cta: "Download" },
+  { side: "keep", name: "Photo Stories Mobile",  status: "soon", description: "Capture photos and the stories behind them on your phone.", link: "" },
   { side: "keep", name: "Biographies",      status: "soon",         description: "Life stories drawn from interviews, from first questions to finished keepsake.", link: "" },
 
   // Make Memories: games you play together
