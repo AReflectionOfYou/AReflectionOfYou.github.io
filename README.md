@@ -10,6 +10,8 @@ Plain HTML, CSS and a little JavaScript: no build step, frameworks, CDNs or anal
 - `styles.css`: colors and fonts are listed at the top as CSS variables.
 - `index.html`: tagline, column intros, about blurb, footer links and the logo slot. Look for the comments.
 
+Contact goes through [GitHub issues](https://github.com/AReflectionOfYou/AReflectionOfYou.github.io/issues) on this repo; the footer's contact link points there.
+
 To add the logo, put the image file in this folder and replace the `<span class="logo-mark">` in `index.html` with `<img src="logo.png" alt="A Reflection of You logo">`.
 
 ## License
