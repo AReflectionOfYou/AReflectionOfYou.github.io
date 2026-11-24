@@ -22,6 +22,8 @@ const PRODUCTS = [
   { side: "make", name: "A Glimpse of You", status: "live",         description: "Figure out who is in the photo with yes/no questions, played together on your home network.", link: "https://github.com/AReflectionOfYou/AGlimpseOfYouGame",
     cta: "Set it up", note: "Needs some computer setup: you install it on a Mac or PC and start it from Terminal. Phones then join over your home WiFi." },
   { side: "make", name: "Quartets of You",  status: "live",         description: "Find the hidden groups of four in this word game.", link: "https://areflectionofyou.github.io/QuartetsOfYouGame/", icon: "icons/quartets-of-you.svg" },
+  { side: "make", name: "Quartets of You Puzzle Packs", status: "live", description: "Write your own Quartets of You puzzles, host them for free, and share a link to play them.", link: "https://github.com/AReflectionOfYou/quartets-puzzle-pack-template", icon: "icons/quartets-of-you.svg",
+    cta: "Use the template", note: "For people comfortable with GitHub: it's a template repository with sample packs and a check that catches mistakes." },
   { side: "make", name: "Swing Time",       status: "live",         description: "Swing your phone to ring virtual handbells and play music together.", link: "https://areflectionofyou.github.io/SwingTimeGame/" },
 ];
 
