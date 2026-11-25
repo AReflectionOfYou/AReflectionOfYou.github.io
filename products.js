@@ -3,7 +3,8 @@
 
   To rename a product, change its "name".
   To add a product, copy one line and edit it.
-  To move a product to the other column, change "side" to "keep" or "make".
+  To move a product to another panel, change "panel" to "instant" (Make Memories, no setup),
+  "setup" (Make Memories, some setup) or "keep" (Keep Memories).
 
   status: "live", "construction" (under construction), or "soon" (coming soon)
   link:   the page or repo to open, or "" for no link yet
@@ -12,19 +13,22 @@
   note:   optional heads-up shown on the card, for anything unusual about getting started
 */
 const PRODUCTS = [
-  // Keep Memories: tools that hold on to the memories you already have
-  { side: "keep", name: "Photo Stories Desktop", status: "live", description: "Tell the stories behind your special photos, name the people in them, and keep it all in a permanent archive. For Mac, Windows and Linux.", link: "https://github.com/AReflectionOfYou/PhotoStoriesDesktop/releases/latest", cta: "Download" },
-  { side: "keep", name: "Photo Stories Mobile",  status: "soon", description: "Capture photos and the stories behind them on your phone.", link: "" },
-  { side: "keep", name: "Biographies",      status: "soon",         description: "Life stories drawn from interviews, from first questions to finished keepsake.", link: "" },
+  // Make Memories, instant play: games that need no setup
+  { panel: "instant", name: "Swing Time",       status: "live",         description: "Swing your phone to ring virtual handbells and play music together.", link: "https://areflectionofyou.github.io/SwingTimeGame/" },
+  { panel: "instant", name: "Two of You",       status: "live",         description: "A memory game to play together.", link: "https://areflectionofyou.github.io/TwoOfYouGame/", icon: "icons/two-of-you.png" },
 
-  // Make Memories: games you play together
-  { side: "make", name: "Two of You",       status: "live",         description: "A memory game to play together.", link: "https://areflectionofyou.github.io/TwoOfYouGame/", icon: "icons/two-of-you.png" },
-  { side: "make", name: "A Glimpse of You", status: "live",         description: "Figure out who is in the photo with yes/no questions, played together on your home network.", link: "https://github.com/AReflectionOfYou/AGlimpseOfYouGame",
-    cta: "Set it up", note: "Needs some computer setup: you install it on a Mac or PC and start it from Terminal. Phones then join over your home WiFi." },
-  { side: "make", name: "Quartets of You",  status: "live",         description: "Find the hidden groups of four in this word game.", link: "https://areflectionofyou.github.io/QuartetsOfYouGame/", icon: "icons/quartets-of-you.svg" },
-  { side: "make", name: "Quartets of You Puzzle Packs", status: "live", description: "Write your own Quartets of You puzzles, host them for free, and share a link to play them.", link: "https://github.com/AReflectionOfYou/quartets-puzzle-pack-template", icon: "icons/quartets-of-you.svg",
+  // Make Memories, some setup needed
+  { panel: "setup", name: "Quartets of You",  status: "live",         description: "Find the hidden groups of four in this word game.", link: "https://areflectionofyou.github.io/QuartetsOfYouGame/", icon: "icons/quartets-of-you.svg" },
+  { panel: "setup", name: "Quartets of You Puzzle Packs", status: "live", description: "Write your own Quartets of You puzzles, host them for free, and share a link to play them.", link: "https://github.com/AReflectionOfYou/quartets-puzzle-pack-template", icon: "icons/quartets-of-you.svg",
     cta: "Use the template", note: "For people comfortable with GitHub: it's a template repository with sample packs and a check that catches mistakes." },
-  { side: "make", name: "Swing Time",       status: "live",         description: "Swing your phone to ring virtual handbells and play music together.", link: "https://areflectionofyou.github.io/SwingTimeGame/" },
+  { panel: "setup", name: "A Glimpse of You", status: "live",         description: "Figure out who is in the photo with yes/no questions, played together on your home network.", link: "https://github.com/AReflectionOfYou/AGlimpseOfYouGame",
+    cta: "Set it up", note: "Needs some computer setup: you install it on a Mac or PC and start it from Terminal. Phones then join over your home WiFi." },
+
+  // Keep Memories: tools that hold on to the memories you already have
+  { panel: "keep", name: "Photo Stories Desktop", status: "live", description: "Tell the stories behind your special photos, name the people in them, and keep it all in a permanent archive. For Mac, Windows and Linux.", link: "https://github.com/AReflectionOfYou/PhotoStoriesDesktop/releases/latest",
+    cta: "Download", note: "In alpha testing: the app is still being tested, so expect some rough edges." },
+  { panel: "keep", name: "Photo Stories Mobile",  status: "soon", description: "Capture photos and the stories behind them on your phone.", link: "" },
+  { panel: "keep", name: "Biographies",      status: "soon",         description: "Life stories drawn from interviews, from first questions to finished keepsake.", link: "" },
 ];
 
 const STATUS_LABELS = {
@@ -35,12 +39,12 @@ const STATUS_LABELS = {
 
 // Build the cards. You should not need to change anything below this line.
 function renderProducts() {
-  for (const side of ["keep", "make"]) {
-    const list = document.getElementById(side + "-list");
+  for (const panel of ["instant", "setup", "keep"]) {
+    const list = document.getElementById(panel + "-list");
     if (!list) continue;
     list.textContent = "";
 
-    for (const p of PRODUCTS.filter((item) => item.side === side)) {
+    for (const p of PRODUCTS.filter((item) => item.panel === panel)) {
       const item = document.createElement("li");
       const card = document.createElement(p.link ? "a" : "div");
       card.className = "card" + (p.status === "live" ? "" : " card-muted");
