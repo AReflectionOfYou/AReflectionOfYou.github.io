@@ -14,7 +14,7 @@
 */
 const PRODUCTS = [
   // Make Memories, instant play: games that need no setup
-  { panel: "instant", name: "Swing Time",       status: "live",         description: "Swing your phone to ring virtual handbells and play music together.", link: "https://areflectionofyou.github.io/SwingTimeGame/",
+  { panel: "instant", name: "Swing Time",       status: "live",         description: "Swing your phone to ring virtual handbells and play music together.", link: "https://areflectionofyou.github.io/SwingTimeGame/", icon: "icons/swing-time.svg",
     note: "Best started on a shared tablet or laptop screen. Phones join by scanning a QR code." },
   { panel: "instant", name: "Two of You",       status: "live",         description: "A memory game to play together.", link: "https://areflectionofyou.github.io/TwoOfYouGame/", icon: "icons/two-of-you.png",
     note: "Played on a single device. A tablet or phone is best." },
@@ -23,7 +23,7 @@ const PRODUCTS = [
   { panel: "setup", name: "Quartets of You",  status: "live",         description: "Find the hidden groups of four in this word game.", link: "https://areflectionofyou.github.io/QuartetsOfYouGame/", icon: "icons/quartets-of-you.svg" },
   { panel: "setup", name: "Quartets of You Puzzle Packs", status: "live", description: "Write your own Quartets of You puzzles, host them for free, and share a link to play them.", link: "https://github.com/AReflectionOfYou/quartets-puzzle-pack-template", icon: "icons/quartets-of-you.svg",
     cta: "Use the template", note: "For people comfortable with GitHub: it's a template repository with sample packs and a check that catches mistakes." },
-  { panel: "setup", name: "A Glimpse of You", status: "live",         description: "Figure out who is in the photo with yes/no questions, played together on your home network.", link: "https://github.com/AReflectionOfYou/AGlimpseOfYouGame",
+  { panel: "setup", name: "A Glimpse of You", status: "live",         description: "Figure out who is in the photo with yes/no questions, played together on your home network.", link: "https://github.com/AReflectionOfYou/AGlimpseOfYouGame", icon: "icons/a-glimpse-of-you.svg",
     cta: "Set it up", note: "Needs some computer setup: you install it on a Mac or PC and start it from Terminal. Phones then join over your home WiFi." },
 
   // Keep Memories: tools that hold on to the memories you already have
