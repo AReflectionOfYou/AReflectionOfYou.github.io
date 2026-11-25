@@ -4,28 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>A Reflection of You</title>
-  <meta name="description" content="Keep memories you have. Have memories to keep. Tools and games for shared stories and experiences.">
+  <meta name="description" content="Have memories to keep. Keep memories you have. Tools and games for shared stories and experiences.">
 
   <!-- Site icon: browser tabs, bookmarks and phone home screens -->
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" href="icons/site-32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="favicon.ico?v=2" sizes="any">
+  <link rel="icon" href="icons/site-32.png?v=2" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+  <link rel="manifest" href="site.webmanifest?v=2">
   <meta name="theme-color" content="#FAF5EA">
 
   <!-- Link previews in texts, email, chat and social media -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="A Reflection of You">
   <meta property="og:title" content="A Reflection of You">
-  <meta property="og:description" content="Keep memories you have. Have memories to keep. Tools and games for shared stories and experiences.">
+  <meta property="og:description" content="Have memories to keep. Keep memories you have. Tools and games for shared stories and experiences.">
   <meta property="og:url" content="https://areflectionofyou.github.io/">
-  <meta property="og:image" content="https://areflectionofyou.github.io/og-image.png">
+  <meta property="og:image" content="https://areflectionofyou.github.io/og-image.png?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="The A Reflection of You logo: a lowercase u and its mirror image in a circle">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- After editing styles.css or products.js, bump the ?v= number so browsers fetch the new copy -->
-  <link rel="stylesheet" href="styles.css?v=5">
+  <!-- After editing styles.css or products.js, bump the ?v= number (the same goes for the icons) so browsers fetch the new copy -->
+  <link rel="stylesheet" href="styles.css?v=6">
   <!-- GoatCounter (cookie-free analytics) -->
   <script data-goatcounter="https://maherou-areflectionofyou.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
@@ -37,22 +37,30 @@
       <span class="logo-mark" aria-hidden="true"><span class="mirror">u</span><span>u</span></span>
     </div>
     <h1>A Reflection of You</h1>
-    <!-- Tagline: the first sentence sits over Keep Memories, the second over Make Memories -->
-    <p class="tagline"><span>Keep memories you have.</span> <span>Have memories to keep.</span></p>
+    <!-- Tagline: one centered line, or two on a narrow screen -->
+    <p class="tagline"><span>Have memories to keep.</span> <span>Keep memories you have.</span></p>
   </header>
 
   <main class="wrap">
     <div class="columns">
+      <section class="column make" aria-labelledby="instant-heading instant-label">
+        <h2 id="instant-heading">Make Memories</h2>
+        <p class="column-label" id="instant-label">Instant play</p>
+        <p class="column-intro">Games you can play right away, with no setup.</p>
+        <ul class="cards" id="instant-list"></ul>
+      </section>
+
+      <section class="column make" aria-labelledby="setup-heading setup-label">
+        <h2 id="setup-heading">Make Memories</h2>
+        <p class="column-label" id="setup-label">Some setup needed</p>
+        <p class="column-intro">Games that take a little setup before you play.</p>
+        <ul class="cards" id="setup-list"></ul>
+      </section>
+
       <section class="column keep" aria-labelledby="keep-heading">
         <h2 id="keep-heading">Keep Memories</h2>
         <p class="column-intro">Tools to gather and hold on to the memories you already have.</p>
         <ul class="cards" id="keep-list"></ul>
-      </section>
-
-      <section class="column make" aria-labelledby="make-heading">
-        <h2 id="make-heading">Make Memories</h2>
-        <p class="column-intro">Games to play together, so there are new memories to keep.</p>
-        <ul class="cards" id="make-list"></ul>
       </section>
     </div>
 
@@ -65,7 +73,7 @@
       <h2 id="about-heading">What this is for</h2>
       <!-- About blurb: edit freely -->
       <p>A Reflection of You makes software that brings people closer through the stories and experiences they share.
-        Some of it helps you keep the memories you already have. Some of it gives you new reasons to sit down together and make more.</p>
+        Some of it gives you new reasons to sit down together and make memories. Some of it helps you keep the memories you already have.</p>
     </section>
   </main>
 
@@ -80,6 +88,6 @@
     </div>
   </footer>
 
-  <script src="products.js?v=7"></script>
+  <script src="products.js?v=8"></script>
 </body>
 </html>

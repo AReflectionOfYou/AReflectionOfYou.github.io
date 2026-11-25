@@ -25,7 +25,7 @@
   --radius: 1rem;
   --shadow: 0 0.25rem 1rem rgb(31 42 68 / 8%);
   --shadow-lift: 0 0.75rem 1.75rem rgb(31 42 68 / 14%);
-  --max-width: 68rem;
+  --max-width: 78rem;
 }
 
 * { box-sizing: border-box; }
@@ -88,7 +88,7 @@ a { color: var(--make-ink); text-underline-offset: 0.18em; }
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: linear-gradient(90deg, var(--keep-wash) 50%, var(--make-wash) 50%);
+  background: linear-gradient(90deg, var(--make-wash) 50%, var(--keep-wash) 50%);
   border: 2px solid var(--ink);
   font-family: var(--font-heading);
   font-size: 2rem;
@@ -113,36 +113,55 @@ a { color: var(--make-ink); text-underline-offset: 0.18em; }
   letter-spacing: -0.02em;
 }
 
-/* On wider screens each tagline sentence is centered over its column */
+/* The two sentences share one centered line, or stack when there is no room */
 .tagline {
-  display: grid;
-  gap: 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 0.4em;
   margin: 1rem 0 0;
   color: var(--ink-soft);
   font-size: clamp(1.15rem, 3vw, 1.4rem);
 }
-@media (min-width: 48rem) {
-  .tagline { grid-template-columns: 1fr 1fr; gap: 2rem; }
-}
 
-/* ---------- Two columns ---------- */
+/* ---------- Three panels ---------- */
 
 .columns {
   display: grid;
   gap: 1.5rem;
+  align-items: start; /* each panel is only as tall as its cards */
 }
 
+/* Tablets: the two Make panels side by side, Keep full width below */
 @media (min-width: 48rem) {
-  .columns { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .columns .keep { grid-column: 1 / -1; }
+}
+/* Computers: all three side by side */
+@media (min-width: 64rem) {
+  .columns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .columns .keep { grid-column: auto; }
 }
 
 .column {
-  padding: clamp(1.5rem, 4vw, 2.5rem);
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
   border-radius: calc(var(--radius) * 1.5);
 }
 .column h2 {
   margin: 0;
   font-size: clamp(1.6rem, 4vw, 2rem);
+}
+/* Says how much setup a panel's games need */
+.column-label {
+  display: inline-block;
+  margin: 0.75rem 0 0;
+  padding: 0.2rem 0.85rem;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid currentColor;
+  color: var(--make-ink);
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 .column-intro {
   margin: 0.5rem 0 1.5rem;

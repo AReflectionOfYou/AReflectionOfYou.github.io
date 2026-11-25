@@ -2,13 +2,13 @@
 
 The home page of the [A Reflection of You](https://github.com/AReflectionOfYou) organization, served by GitHub Pages at <https://areflectionofyou.github.io/>.
 
-Plain HTML, CSS and a little JavaScript: no build step, frameworks, CDNs or analytics. `.nojekyll` tells GitHub Pages to serve the files as-is.
+Plain HTML, CSS and a little JavaScript: no build step, frameworks or CDNs. Visits are counted with [GoatCounter](https://www.goatcounter.com/), which uses no cookies. `.nojekyll` tells GitHub Pages to serve the files as-is.
 
 ## What to edit
 
-- `products.js`: the product cards. Each product is one line with its column (`keep` or `make`), name, status, description and link. Rename, add or move a product by editing that line.
+- `products.js`: the product cards. Each product is one entry with its panel (`instant` for Make Memories with no setup, `setup` for Make Memories with some setup, or `keep` for Keep Memories), name, status, description and link. Rename, add or move a product by editing that entry.
 - `styles.css`: colors and fonts are listed at the top as CSS variables.
-- `index.html`: tagline, column intros, about blurb, footer links and the logo slot. Look for the comments.
+- `index.html`: tagline, panel headings, labels and intros, about blurb, footer links and the logo slot. Look for the comments.
 
 Contact goes through [GitHub issues](https://github.com/AReflectionOfYou/AReflectionOfYou.github.io/issues) on this repo; the footer's contact link points there.
 
