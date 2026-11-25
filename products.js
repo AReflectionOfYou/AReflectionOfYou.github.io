@@ -14,8 +14,10 @@
 */
 const PRODUCTS = [
   // Make Memories, instant play: games that need no setup
-  { panel: "instant", name: "Swing Time",       status: "live",         description: "Swing your phone to ring virtual handbells and play music together.", link: "https://areflectionofyou.github.io/SwingTimeGame/" },
-  { panel: "instant", name: "Two of You",       status: "live",         description: "A memory game to play together.", link: "https://areflectionofyou.github.io/TwoOfYouGame/", icon: "icons/two-of-you.png" },
+  { panel: "instant", name: "Swing Time",       status: "live",         description: "Swing your phone to ring virtual handbells and play music together.", link: "https://areflectionofyou.github.io/SwingTimeGame/",
+    note: "Best started on a shared tablet or laptop screen. Phones join by scanning a QR code." },
+  { panel: "instant", name: "Two of You",       status: "live",         description: "A memory game to play together.", link: "https://areflectionofyou.github.io/TwoOfYouGame/", icon: "icons/two-of-you.png",
+    note: "Played on a single device. A tablet or phone is best." },
 
   // Make Memories, some setup needed
   { panel: "setup", name: "Quartets of You",  status: "live",         description: "Find the hidden groups of four in this word game.", link: "https://areflectionofyou.github.io/QuartetsOfYouGame/", icon: "icons/quartets-of-you.svg" },
